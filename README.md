@@ -13,13 +13,15 @@ Building and Installing JZMQ
 To build you need to have the libzmq library already installed, then you run:
 
 ```bash
+cd ~/
+git clone https://github.com/anthill-utils/jzmq.git
+cd jzmq/
+apt-get install -y pkg-config libtool autoconf automake libzmq-dev
 cd jzmq-jni/
 ./autogen.sh
-./configure
+./configure --prefix=/usr
 make
 make install
-cd ..
-mvn package
 ```
 
 If you hope to install to your local maven, then you should run:
