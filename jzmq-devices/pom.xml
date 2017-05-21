@@ -3,20 +3,20 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.zeromq</groupId>
+    <groupId>com.github.anthill-utils</groupId>
     <artifactId>jzmq-parent</artifactId>
-    <version>3.1.1-SNAPSHOT</version>
+    <version>3.1.1-dev</version>
   </parent>
 
-  <groupId>org.zeromq</groupId>
+  <groupId>com.github.anthill-utils</groupId>
   <artifactId>jzmq-devices</artifactId>
   <packaging>jar</packaging>
 
   <dependencies>
     <dependency>
-      <groupId>org.zeromq</groupId>
+      <groupId>com.github.anthill-utils</groupId>
       <artifactId>jzmq-jni</artifactId>
-      <version>3.1.1-SNAPSHOT</version>
+      <version>3.1.1-dev</version>
     </dependency>
   </dependencies>
 
