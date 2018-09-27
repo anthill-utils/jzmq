@@ -5,10 +5,9 @@
   <parent>
     <groupId>com.github.anthill-utils</groupId>
     <artifactId>jzmq-parent</artifactId>
-    <version>3.1.1-dev</version>
+    <version>3.1.2</version>
   </parent>
 
-  <groupId>com.github.anthill-utils</groupId>
   <artifactId>jzmq-core</artifactId>
   <packaging>jar</packaging>
 
@@ -16,12 +15,20 @@
     <dependency>
       <groupId>com.github.anthill-utils</groupId>
       <artifactId>jzmq-jni</artifactId>
-      <version>3.1.1-dev</version>
+      <version>3.1.2</version>
     </dependency>
   </dependencies>
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.20.1</version>
+        <configuration>
+          <skipTests>true</skipTests>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.commonjava.maven.plugins</groupId>
         <artifactId>directory-maven-plugin</artifactId>

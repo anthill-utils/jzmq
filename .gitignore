@@ -82,3 +82,4 @@ javah_stamp
 .tags*
 *.sublime-project
 *.sublime-workspace
+jzmq-jni/src/main/c++

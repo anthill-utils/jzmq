@@ -8,12 +8,8 @@
   </parent>
   <groupId>com.github.anthill-utils</groupId>
   <artifactId>jzmq-parent</artifactId>
-  <version>3.1.1-dev</version>
+  <version>3.1.2</version>
   <packaging>pom</packaging>
-  <configuration>
-    <skipTests>true</skipTests>
-    <gpg.skip>true</gpg.skip>
-  </configuration>
   <description>
     The 0MQ lightweight messaging kernel is a library which extends
     the standard socket interfaces with features traditionally
@@ -53,65 +49,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
-    <native.arch>${os.arch}</native.arch>
-    <native.path.resolved>${native.path}</native.path.resolved>
-    <native.library-path.resolved>${native.library-path}</native.library-path.resolved>
   </properties>
-  <profiles>
-    <profile>
-      <id>JNI-Config-For-Linux</id>
-      <activation>
-        <property>
-          <name>os.name</name>
-          <value>Linux</value>
-        </property>
-      </activation>
-      <properties>
-        <native.os>${os.name}</native.os>
-        <native.path>${root.directory}/jzmq-jni/src/main/c++/.libs/libjzmq.so</native.path>
-        <native.library-path>${root.directory}/jzmq-jni/src/main/c++/.libs/</native.library-path>
-      </properties>
-    </profile>
-    <profile>
-      <id>JNI-Config-For-Windows</id>
-      <activation>
-        <os>
-          <family>windows</family>
-        </os>
-      </activation>
-      <properties>
-        <native.os>Windows</native.os>
-        <native.path>${root.directory}/jzmq-jni/lib/jzmq.dll</native.path>
-        <native.library-path>${root.directory}/jzmq-jni/lib</native.library-path>
-      </properties>
-    </profile>
-    <profile>
-      <id>JNI-Config-For-Mac</id>
-      <activation>
-        <os>
-          <family>mac</family>
-        </os>
-      </activation>
-      <properties>
-        <native.os>${os.name}</native.os>
-        <native.path>${root.directory}/jzmq-jni/src/main/c++/.libs/libjzmq.dylib</native.path>
-        <native.library-path>${root.directory}/jzmq-jni/src/main/c++/.libs/</native.library-path>
-      </properties>
-    </profile>
-    <profile>
-      <id>deploy-local-maven</id>
-      <distributionManagement>
-        <repository>
-          <id>maven.releases</id>
-          <url>${env.RELEASE_REPO}</url>
-        </repository>
-        <snapshotRepository>
-          <id>maven.snapshots</id>
-          <url>${env.SNAPSHOT_REPO}</url>
-        </snapshotRepository>
-      </distributionManagement>
-    </profile>
-  </profiles>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -139,11 +77,6 @@
               </configuration>
             </execution>
           </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-gpg-plugin</artifactId>
-          <version>1.4</version>
         </plugin>
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
@@ -174,9 +107,7 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.16</version>
           <configuration>
-            <forkCount>1</forkCount>
-            <reuseForks>true</reuseForks>
-            <argLine>-Djava.library.path=${native.library-path.resolved}</argLine>
+              <skipTests>true</skipTests>
           </configuration>
         </plugin>
         <plugin>
@@ -193,11 +124,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <version>2.1.2</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.7</version>
         </plugin>
       </plugins>
     </pluginManagement>

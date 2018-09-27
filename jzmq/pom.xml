@@ -5,22 +5,21 @@
   <parent>
     <groupId>com.github.anthill-utils</groupId>
     <artifactId>jzmq-parent</artifactId>
-    <version>3.1.1-dev</version>
+    <version>3.1.2</version>
   </parent>
 
-  <groupId>com.github.anthill-utils</groupId>
   <artifactId>jzmq</artifactId>
 
   <dependencies>
     <dependency>
       <groupId>com.github.anthill-utils</groupId>
       <artifactId>jzmq-core</artifactId>
-      <version>3.1.1-dev</version>
+      <version>3.1.2</version>
     </dependency>
     <dependency>
       <groupId>com.github.anthill-utils</groupId>
       <artifactId>jzmq-devices</artifactId>
-      <version>3.1.1-dev</version>
+      <version>3.1.2</version>
     </dependency>
   </dependencies>
 </project>

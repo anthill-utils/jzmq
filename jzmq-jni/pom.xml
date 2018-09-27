@@ -5,10 +5,9 @@
   <parent>
     <groupId>com.github.anthill-utils</groupId>
     <artifactId>jzmq-parent</artifactId>
-    <version>3.1.1-dev</version>
+    <version>3.1.2</version>
   </parent>
 
-  <groupId>com.github.anthill-utils</groupId>
   <artifactId>jzmq-jni</artifactId>
   <packaging>jar</packaging>
 
@@ -16,38 +15,6 @@
     <native.distro/>
     <native.zmq.version/>
   </properties>
-
-  <profiles>
-    <profile>
-      <id>os-distro</id>
-      <activation>
-        <property>
-          <name>os.distro</name>
-        </property>
-      </activation>
-      <properties>
-        <native.distro>-${os.distro}</native.distro>
-      </properties>
-    </profile>
-    <profile>
-      <id>zmq-version</id>
-      <activation>
-        <property>
-          <name>zmq.version</name>
-        </property>
-      </activation>
-      <properties>
-        <native.zmq.version>-${zmq.version}</native.zmq.version>
-      </properties>
-    </profile>
-    <profile>
-      <id>release</id>
-      <properties>
-        <native.path.resolved>..${file.separator}..${file.separator}${native.path}</native.path.resolved>
-        <native.library-path.resolved>..${file.separator}..${file.separator}${native.library-path}</native.library-path.resolved>
-      </properties>
-    </profile>
-  </profiles>
 
   <dependencies>
     <dependency>
@@ -73,34 +40,11 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.20.1</version>
         <configuration>
-          <descriptors>
-            <!-- Assembly contents are defined in this file -->
-            <descriptor>nativejar.xml</descriptor>
-          </descriptors>
+          <skipTests>true</skipTests>
         </configuration>
-        <executions>
-          <execution>
-            <id>make-assembly</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -138,16 +82,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <inherited>true</inherited>
-        <configuration>
-          <archive>
-            <manifest>
-              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-            </manifest>
-            <manifestEntries>
-              <Implementation-Version>${buildNumber} ${buildTimestamp}</Implementation-Version>
-            </manifestEntries>
-          </archive>
-        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -180,18 +114,6 @@
         <executions>
           <execution>
             <id>attach-sources</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>attach-javadoc</id>
             <goals>
               <goal>jar</goal>
             </goals>

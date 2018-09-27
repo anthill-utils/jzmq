@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.anthill-utils</groupId>
     <artifactId>jzmq-parent</artifactId>
-    <version>3.1.1-dev</version>
+    <version>3.1.2</version>
   </parent>
 
   <groupId>com.github.anthill-utils</groupId>
@@ -16,7 +16,7 @@
     <dependency>
       <groupId>com.github.anthill-utils</groupId>
       <artifactId>jzmq-jni</artifactId>
-      <version>3.1.1-dev</version>
+      <version>3.1.2</version>
     </dependency>
   </dependencies>
 
