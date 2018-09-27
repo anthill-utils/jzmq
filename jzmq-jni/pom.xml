@@ -8,6 +8,7 @@
     <version>3.1.2</version>
   </parent>
 
+  <groupId>com.github.anthill-utils</groupId>
   <artifactId>jzmq-jni</artifactId>
   <packaging>jar</packaging>
 
