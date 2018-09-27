@@ -3,18 +3,18 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.github.anthill-utils</groupId>
+    <groupId>com.github.anthill-utils.jzmq</groupId>
     <artifactId>jzmq-parent</artifactId>
     <version>3.1.2</version>
   </parent>
 
-  <groupId>com.github.anthill-utils</groupId>
+  <groupId>com.github.anthill-utils.jzmq</groupId>
   <artifactId>jzmq-core</artifactId>
   <packaging>jar</packaging>
 
   <dependencies>
     <dependency>
-      <groupId>com.github.anthill-utils</groupId>
+      <groupId>com.github.anthill-utils.jzmq</groupId>
       <artifactId>jzmq-jni</artifactId>
       <version>3.1.2</version>
     </dependency>

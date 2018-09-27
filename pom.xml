@@ -6,7 +6,7 @@
     <artifactId>oss-parent</artifactId>
     <version>7</version>
   </parent>
-  <groupId>com.github.anthill-utils</groupId>
+  <groupId>com.github.anthill-utils.jzmq</groupId>
   <artifactId>jzmq-parent</artifactId>
   <version>3.1.2</version>
   <packaging>pom</packaging>
